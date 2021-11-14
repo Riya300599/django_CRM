@@ -1,0 +1,45 @@
+{% extends "accounts/base.html" %}
+
+{% block content %}
+  <br>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+      <div class="card card-body">
+        <h3>Products</h3>
+        <hr>
+        <table class="table table-hover table-sm">
+          <tr>
+            
+            <th>Product</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+          </tr>
+          {% for prod in products %}
+            <tr>
+              
+              <td>{{ prod.name }}</td>
+              <td>{{ prod.category }}</td>
+              <td>{{ prod.price }}</td>
+              <td><a class="btn btn-info btn-md" href="{% url 'accounts:update_product' prod.id %}">Edit</a></td>
+              <td><a class="btn btn-danger btn-md" href="{% url 'accounts:delete_product' prod.id %}">Delete</a></td>
+
+            </tr>
+          {% endfor %}
+        </table>
+
+        <hr>
+        <p><a class="btn btn-primary" href="{% url 'accounts:create_product' %}">Add a Product</a></p>
+        
+      </div>
+    </div>
+
+    <div class="col-md-2">
+    </div>
+
+  </div>
+{% endblock %}

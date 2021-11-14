@@ -1,0 +1,24 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+{% load bootstrap4 %}
+
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-8">
+    <div class="card card-body">
+      <h3>Add a new Product:</h3>
+      <hr>
+      <form class="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        <input class="btn btn-primary" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2">
+  </div>
+</div>
+
+{% endblock %}
